@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class Interfaz extends javax.swing.JFrame {
     
     ImageIcon Imagen[] = new ImageIcon[6];
-    int cont=1;
+    int cont=0;
 
     /**
      * Creates new form Interfaz
@@ -15,10 +15,10 @@ public class Interfaz extends javax.swing.JFrame {
     public Interfaz() {
         initComponents();
         this.setTitle("Galeria");
-        for (int i = 1; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             Imagen[i]= new ImageIcon(getClass().getResource("/imagenes/"+i+".jpg"));
         }
-        jLabelImagen.setIcon(Imagen[1]);
+        jLabelImagen.setIcon(Imagen[0]);
     }
 
     /**
@@ -69,16 +69,16 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jButtonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteActionPerformed
         // TODO add your handling code here:
-        if(cont==5){
-            cont=0;
-        }
         cont++;
         jLabelImagen.setIcon(Imagen[cont]);
+        if(cont==5){
+            cont=-1;
+        }
     }//GEN-LAST:event_jButtonSiguienteActionPerformed
 
     private void jButtonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnteriorActionPerformed
-        // TODO add your handling code here:
-        if(cont==1){
+        // TODO add your handling code here:  
+        if(cont==0){
             cont=6;
         }
         cont--;
