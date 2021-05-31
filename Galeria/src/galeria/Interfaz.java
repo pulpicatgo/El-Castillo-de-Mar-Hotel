@@ -9,9 +9,6 @@ public class Interfaz extends javax.swing.JFrame {
     ImageIcon Imagen[] = new ImageIcon[6];
     int cont=0;
 
-    /**
-     * Creates new form Interfaz
-     */
     public Interfaz() {
         initComponents();
         this.setTitle("Galeria");
