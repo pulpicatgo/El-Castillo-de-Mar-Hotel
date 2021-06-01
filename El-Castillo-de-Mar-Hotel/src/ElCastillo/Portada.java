@@ -34,7 +34,7 @@ public class Portada extends JPanel{
     g.drawString("Programacion lll",50,325);
     g.drawString("Profesora: Georgina Salazar Partida",50,350);
     g.drawString("Aumnos:                4B",50,400);
-    g.drawString("Angel Daniel Medina Juarez  ID.",50,425);
+    g.drawString("Angel Daniel Medina Juarez  ID.256387",50,425);
     g.drawString("Ruben Ivan Lopez Guevara    ID.253858",50,450);
     g.drawString("Regina Hernadnez Juarez     ID.259328",50,475);
     }
