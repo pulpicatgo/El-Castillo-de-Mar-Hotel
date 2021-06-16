@@ -1,18 +1,19 @@
 
 package galeria;
 
+import java.applet.AudioClip;
 import javax.swing.ImageIcon;
-
 
 public class Interfaz extends javax.swing.JFrame {
     
-    ImageIcon Imagen[] = new ImageIcon[6];
+    ImageIcon Imagen[] = new ImageIcon[11];
     int cont=0;
 
     public Interfaz() {
         initComponents();
+        setResizable(false);
         this.setTitle("Galeria");
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 11; i++) {
             Imagen[i]= new ImageIcon(getClass().getResource("/imagenes/"+i+".jpg"));
         }
         jLabelImagen.setIcon(Imagen[0]);
@@ -68,7 +69,7 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         cont++;
         jLabelImagen.setIcon(Imagen[cont]);
-        if(cont==5){
+        if(cont==10){
             cont=-1;
         }
     }//GEN-LAST:event_jButtonSiguienteActionPerformed
@@ -76,7 +77,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void jButtonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnteriorActionPerformed
         // TODO add your handling code here:  
         if(cont==0){
-            cont=6;
+            cont=11;
         }
         cont--;
         jLabelImagen.setIcon(Imagen[cont]);
