@@ -25,7 +25,7 @@ public class Portada extends JPanel{
     Font fuente =new Font("Arial",Font.PLAIN,20 );
     g.setFont(fuente);//coordenadas x,y
    // Dimension dimension = this.getSize();
-    ImageIcon icon = new ImageIcon(getClass().getResource("/ElCastillo/uaa.png"));
+    ImageIcon icon = new ImageIcon(getClass().getResource("/images/uaa.png"));
     g.drawImage(icon.getImage(), 150, 25, null);
     g.drawString("UNIVERSIDAD AUTONOMA DE AGUASCALIENTES",50,260);
     g.drawImage(fondo, 50, 25, this);

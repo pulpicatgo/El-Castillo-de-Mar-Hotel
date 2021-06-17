@@ -5,32 +5,17 @@
  */
 package ventanas;
 
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-
 /**
  *
- * @author regina
+ * @author Refre
  */
-public class Galeria1 extends javax.swing.JFrame {
-    
-    
-    public Galeria1() {
+public class Menudo1 extends javax.swing.JFrame {
+
+    /**
+     * Creates new form Menudo1
+     */
+    public Menudo1() {
         initComponents();
-    setSize(956,507);
-        //para evitar que el usuario modifique las dimenciones
-        setResizable(false);
-        setTitle("Galeria");
-        setLocationRelativeTo(null);
-        
-        //crear objeto de la clase imagen icon
-        ImageIcon Galeria = new ImageIcon("src/images/triple3.jpg");
-        Icon icono= new ImageIcon(Galeria.getImage().getScaledInstance(jLabelGaleria1.getWidth(), jLabelGaleria1.getHeight(),Image.SCALE_DEFAULT));  
-        jLabelGaleria1.setIcon(icono);
-       //asegurar que actualice la imagen
-        this.repaint();
-    
     }
 
     /**
@@ -42,12 +27,20 @@ public class Galeria1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelGaleria1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Galeria");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jLabelGaleria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 429, 300));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -69,25 +62,25 @@ public class Galeria1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Galeria1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menudo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Galeria1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menudo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Galeria1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menudo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Galeria1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menudo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Galeria1().setVisible(true);
+                new Menudo1().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabelGaleria1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
