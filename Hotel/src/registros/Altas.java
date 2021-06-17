@@ -291,7 +291,7 @@ public class Altas extends javax.swing.JFrame {
      //Codigo Angel
      Ticket ticket = new Ticket();
      ticket.setVisible(true);
-     
+     String Cargos = this.jTextFieldCargosExtra.getText();
      ticket.jTextAreaTicket.setText("Nombre Del huesped:"+nombre+"\n"
      +"Ciudad de Origen: "+ciudad+"\n"
      +"Fecha de ingreso: "+auxfecha+"\n"
@@ -299,7 +299,7 @@ public class Altas extends javax.swing.JFrame {
      +"Numero de Habitacion:     piso:    \n"
      +"Tipo de habitacion: "+tipoHab+"\n"
      +"Total de ocupantes en la habitacion: "+jTextFieldTotalPers.getText()+"\n"
-     +"Total de cargos Extra: "+jTextFieldCargosExtra+"\n"        
+     +"Total de cargos Extra: "+Cargos+"\n"        
      +"*********Registro Completado*************\n");
 
      System.out.println("Numero de registros afectados por la accion:"+j);
@@ -327,6 +327,7 @@ public class Altas extends javax.swing.JFrame {
         CargosExtras cargo = new CargosExtras();
         cargo.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
