@@ -7,16 +7,21 @@ import javax.swing.ImageIcon;
 public class Interfaz extends javax.swing.JFrame {
     
     ImageIcon Imagen[] = new ImageIcon[11];
+    AudioClip Sound;
     int cont=0;
+    boolean music = true;
 
     public Interfaz() {
         initComponents();
         setResizable(false);
         this.setTitle("Galeria");
+        
         for (int i = 0; i < 11; i++) {
             Imagen[i]= new ImageIcon(getClass().getResource("/imagenes/"+i+".jpg"));
         }
         jLabelImagen.setIcon(Imagen[0]);
+        Sound = java.applet.Applet.newAudioClip(getClass().getResource("/musica/Cancion.wav"));
+        Sound.play();
     }
 
     /**
@@ -31,13 +36,14 @@ public class Interfaz extends javax.swing.JFrame {
         jLabelImagen = new javax.swing.JLabel();
         jButtonAnterior = new javax.swing.JButton();
         jButtonSiguiente = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        jLabelImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         getContentPane().add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 450, 300));
 
         jButtonAnterior.setText("Anterior");
@@ -57,6 +63,14 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 90, 30));
+
+        jButton1.setText("Play/Stop");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, -1, -1));
 
         jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo1.jpg"))); // NOI18N
@@ -82,6 +96,16 @@ public class Interfaz extends javax.swing.JFrame {
         cont--;
         jLabelImagen.setIcon(Imagen[cont]);
     }//GEN-LAST:event_jButtonAnteriorActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(music==true){
+            music=false;
+            Sound.stop();
+        }else{
+            music=true;
+            Sound.play();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,6 +143,7 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAnterior;
     private javax.swing.JButton jButtonSiguiente;
     private javax.swing.JLabel jLabelFondo;
