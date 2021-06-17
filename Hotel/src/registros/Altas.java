@@ -299,7 +299,7 @@ public class Altas extends javax.swing.JFrame {
      +"Numero de Habitacion:     piso:    \n"
      +"Tipo de habitacion: "+tipoHab+"\n"
      +"Total de ocupantes en la habitacion: "+jTextFieldTotalPers.getText()+"\n"
-     +"Total de cargos Extra: "+Cargos+"\n"        
+     +"Total de cargos Extra: "+Cargos+" \n"        
      +"*********Registro Completado*************\n");
 
      System.out.println("Numero de registros afectados por la accion:"+j);
