@@ -372,6 +372,7 @@ public class Altas extends javax.swing.JFrame {
         }
 
         String[] f = fecha.split("/");
+        //hola
         Calendar calendar = Calendar.getInstance();
 
         calendar.set(Integer.parseInt(f[0]), Integer.parseInt(f[1])-1, Integer.parseInt(f[2]));
