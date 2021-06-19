@@ -1,4 +1,3 @@
-
 package ventanas;
 
 import java.awt.Color;
@@ -8,10 +7,11 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
-public class Portada extends JPanel{
+public class portada extends JPanel{
     private Image fondo;
     @Override
     public void paint(Graphics g){
@@ -24,8 +24,8 @@ public class Portada extends JPanel{
     //establezco la fuente que quiero con la clase font
     Font fuente =new Font("Arial",Font.PLAIN,20 );
     g.setFont(fuente);//coordenadas x,y
-   // Dimension dimension = this.getSize();
-    ImageIcon icon = new ImageIcon(getClass().getResource("/images/uaa.png"));
+
+    ImageIcon icon = new ImageIcon(getClass().getResource("/images/uaa.jpeg"));
     g.drawImage(icon.getImage(), 150, 25, null);
     g.drawString("UNIVERSIDAD AUTONOMA DE AGUASCALIENTES",50,260);
     g.drawImage(fondo, 50, 25, this);
@@ -34,21 +34,28 @@ public class Portada extends JPanel{
     g.drawString("Programacion lll",50,325);
     g.drawString("Profesora: Georgina Salazar Partida",50,350);
     g.drawString("Aumnos:                4B",50,400);
-    g.drawString("Angel Daniel Medina Juarez  ID.256387",50,425);
-    g.drawString("Ruben Ivan Lopez Guevara    ID.253858",50,450);
-    g.drawString("Regina Hernadnez Juarez     ID.259328",50,475);
+    g.drawString("Angel Daniel Medina Juarez          ID.256387",50,425);
+    g.drawString("Ruben Ivan Lopez Guevara           ID.253858",50,450);
+    g.drawString("Regina Hernadnez Juarez             ID.259328",50,475);
+    g.drawString("Miguel Angel Dueñas Cervantes    ID.259008",50,500);
+    g.drawString("                                                                                      18/06/2021",50,525);
+
+    Login al = new Login();
+    al.setVisible(true);
+    
     }
     //creamos la platillade la aplicaion usando graphics
     public static void main(String[] args) {
         
         JFrame ventana =new JFrame("Portada");
-        Portada objeto=new Portada();
+        portada objeto=new portada();
        
         ventana.add(objeto);
         ventana.setSize(700,700);
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         //tipografia directa
         
                 

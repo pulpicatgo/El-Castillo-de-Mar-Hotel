@@ -2,23 +2,49 @@ package ventanas;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.Icon;
+import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import java.sql.*;
-import clases.Conexion;
 import controlMySql.MySqlConn;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
-
+import java.applet.AudioClip;
+import java.awt.Dimension;
 import registros.Menu;
 
-/**
- *
- * @author regina
- */
+
+
+
 public class Login extends javax.swing.JFrame {
     //variables para enviar datos a interfaces
+    
+    public class Imagen extends javax.swing.JPanel {
+ 
+public Imagen() {
+this.setSize(260, 150); //se selecciona el tamaño del panel
+}
+ 
+//Se crea un método cuyo parámetro debe ser un objeto Graphics
+ 
+public void paint(Graphics grafico) {
+Dimension height = getSize();
+ 
+//Se selecciona la imagen que tenemos en el paquete de la //ruta del programa
+ 
+ImageIcon Img = new ImageIcon(getClass().getResource("/images/Mision.jpeg")); 
+ 
+//se dibuja la imagen que tenemos en el paquete Images //dentro de un panel
+ 
+grafico.drawImage(Img.getImage(), 0, 0, height.width, height.height, null);
+ 
+setOpaque(false);
+super.paintComponent(grafico);
+}
+}
     public static String user="";
     String pass = "";
+    AudioClip Sound;
+    
     MySqlConn conn=new MySqlConn();
     
     public Login(MySqlConn conn) {
@@ -40,31 +66,35 @@ public class Login extends javax.swing.JFrame {
         setTitle("Login de acceso");
         setLocationRelativeTo(null);
         
-        //crear objeto de la clase imagen icon
-        ImageIcon wallpaper = new ImageIcon("src/images/playa.jpg");
-        Icon icono= new ImageIcon(wallpaper.getImage().getScaledInstance(jLabelWallpaper.getWidth(), jLabelWallpaper.getHeight(),Image.SCALE_DEFAULT));  
-        jLabelWallpaper.setIcon(icono);
-       //asegurar que actualice la imagen
-        this.repaint();
+        Sound=java.applet.Applet.newAudioClip(getClass().getResource("/Sonidos/Chocolate.wav"));
+        Sound.play();
         
+//        //crear objeto de la clase imagen icon
+//        ImageIcon wallpaper = new ImageIcon("src/images/playa.jpg");
+//        Icon icono= new ImageIcon(wallpaper.getImage().getScaledInstance(jLabelWallpaper.getWidth(), jLabelWallpaper.getHeight(),Image.SCALE_DEFAULT));  
+//        jLabelWallpaper.setIcon(icono);
+//       //asegurar que actualice la imagen
+//        this.repaint();
+//        
+//        
+//        //crear objeto
+//        ImageIcon wallpaperLogo=new ImageIcon("src/images/LogoHotel.png");
+//        Icon iconoLogo=new ImageIcon(wallpaperLogo.getImage().getScaledInstance(jLabelLogo.getWidth(), jLabelLogo.getHeight(), Image.SCALE_DEFAULT));
+//        jLabelLogo.setIcon(iconoLogo);
+//        this.repaint();
         
-        //crear objeto
-        ImageIcon wallpaperLogo=new ImageIcon("src/images/LogoHotel.png");
-        Icon iconoLogo=new ImageIcon(wallpaperLogo.getImage().getScaledInstance(jLabelLogo.getWidth(), jLabelLogo.getHeight(), Image.SCALE_DEFAULT));
-        jLabelLogo.setIcon(iconoLogo);
-        this.repaint();
-        
-             
+            
         
     }//cierre del constructor
     //vamos a sobre escribir un metodo , colocamos @override 
  @Override
-        public Image getIconImage(){
+        public Image getIconImage(){   
         //objeto
         Image retValue= Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/icono.jpeg"));
         return retValue;
     
     }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,23 +115,29 @@ public class Login extends javax.swing.JFrame {
         jButtonRegistro = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPasswordFieldCuentaLogin = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabelWallpaper = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoHotel.png"))); // NOI18N
         getContentPane().add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 250));
 
         jTextFieldRegistro.setBackground(new java.awt.Color(0, 0, 0));
-        jTextFieldRegistro.setFont(new java.awt.Font("C059", 0, 24)); // NOI18N
+        jTextFieldRegistro.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextFieldRegistro.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldRegistro.setToolTipText("");
+        jTextFieldRegistro.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jTextFieldRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 240, 50));
 
         jPasswordCuentaRegistro.setBackground(new java.awt.Color(0, 0, 0));
-        jPasswordCuentaRegistro.setFont(new java.awt.Font("FreeSans", 0, 18)); // NOI18N
+        jPasswordCuentaRegistro.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jPasswordCuentaRegistro.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordCuentaRegistro.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
         getContentPane().add(jPasswordCuentaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 240, 60));
@@ -110,12 +146,13 @@ public class Login extends javax.swing.JFrame {
         jButtonAcceder.setFont(new java.awt.Font("FreeMono", 0, 24)); // NOI18N
         jButtonAcceder.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAcceder.setText("Acceder");
+        jButtonAcceder.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonAcceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAccederActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAcceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 150, 50));
+        getContentPane().add(jButtonAcceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 150, 50));
 
         jLabelFooter.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         jLabelFooter.setForeground(new java.awt.Color(153, 153, 153));
@@ -127,8 +164,9 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 100, 60));
 
         jTextFieldCuenta.setBackground(new java.awt.Color(0, 0, 0));
+        jTextFieldCuenta.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextFieldCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextFieldCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 170, 240, 50));
+        getContentPane().add(jTextFieldCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 170, 250, 60));
 
         jButtonRegistro.setBackground(new java.awt.Color(102, 102, 102));
         jButtonRegistro.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
@@ -143,22 +181,47 @@ public class Login extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setFont(new java.awt.Font("Sylfaen", 0, 11)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(153, 153, 153));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Limpiar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 270, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 120, 60));
 
         jPasswordFieldCuentaLogin.setBackground(new java.awt.Color(0, 0, 0));
+        jPasswordFieldCuentaLogin.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jPasswordFieldCuentaLogin.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jPasswordFieldCuentaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 240, 240, 50));
+        getContentPane().add(jPasswordFieldCuentaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 250, 60));
+
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Stop Music");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 0, 170, -1));
+
+        jButton3.setBackground(new java.awt.Color(153, 153, 153));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Mision/Vision");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 170, 30));
 
         jLabelWallpaper.setBackground(new java.awt.Color(0, 0, 0));
         jLabelWallpaper.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelWallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playa.jpeg"))); // NOI18N
         getContentPane().add(jLabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 510));
+
+        jPanel1.setForeground(new java.awt.Color(240, 240, 240));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 260, 150));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -178,8 +241,9 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Bienvenido " + 
                         this.conn.rs.getString(1)+" al sistema");
             this.setVisible(false);
-            Menu al=new Menu();
+            Menu al = new Menu();
             al.setVisible(true);
+         
             }else
                 JOptionPane.showMessageDialog(this, "Error en la contraseña");
         }catch (SQLException ex){     
@@ -218,6 +282,18 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonRegistroActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Sound.stop();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        Imagen Imagen = new Imagen();
+        jPanel1.add(Imagen);
+        jPanel1.repaint();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -254,7 +330,9 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonAcceder;
     private javax.swing.JButton jButtonRegistro;
     private javax.swing.JLabel jLabel1;
@@ -262,6 +340,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFooter;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelWallpaper;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordCuentaRegistro;
     private javax.swing.JPasswordField jPasswordFieldCuentaLogin;
     private javax.swing.JTextField jTextFieldCuenta;
